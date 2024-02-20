@@ -10,13 +10,15 @@
 
         </div>
         <script>
-            const fileI = document.getElementById("dmarc-report");
+            function uploadFile() {
+                const fileI = document.getElementById("dmarc-report");
             const file = fileI[0];
 
             const body = new FormData();
             body.append('file', file);
 
             fetch('http://localhost:3000/upload', { method: "POST", body: body});
+            }
         </script>
     </body>
 </html>
