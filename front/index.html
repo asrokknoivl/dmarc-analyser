@@ -15,6 +15,8 @@
 
             const body = new FormData();
             body.append('file', file);
+
+            fetch('http://localhost:3000/upload', { method: "POST", body: body});
         </script>
     </body>
 </html>
