@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>hc-dmarc</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <input type="file" name="dmarc-report" id="dmarc-report">
+        <button onclick="uploadFile()">upload</button>
+        <div id="message">
+
+        </div>
+        <script>
+            const fileI = document.getElementById("dmarc-report");
+            const file = fileI[0];
+
+            const body = new FormData();
+            body.append('file', file);
+        </script>
+    </body>
+</html>
