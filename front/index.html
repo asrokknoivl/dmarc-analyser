@@ -2,23 +2,26 @@
     <head>
         <title>hc-dmarc</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
-            function uploadFile() {
-                const fileI = document.getElementById("dmarc-report");
-            const file = fileI[0];
-
-            const body = new FormData();
-            body.append('file', file);
-
-            fetch('http://localhost:3000/upload', { method: "POST", body: body});
-            }
-        </script>
     </head>
     <body>
-        <input type="file" name="dmarc-report" id="dmarc-report">
-        <button onclick="uploadFile()">upload</button>
+        <form id="dmarc">
+            <input type="file" name="dmarc-report" id="dmarc-report">
+            <button type="submit">upload</button>    
+        </form>
         <div id="message">
 
         </div>
+        
+        <script>
+            document.getElementById("dmarc").addEventListener("submit", async function(e) {
+                e.preventDefault();
+                const file = document.getElementById("dmarc-report").files[0];
+                
+                const formData = new FormData();
+                formData.append('file', file); 
+
+                await fetch('http://localhost:3000/upload', { method: "POST", body: formData});
+            })
+        </script>
     </body>
 </html>
