@@ -1,9 +1,13 @@
 const express = require('express');
 const app = express();
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
 
+// routes
+const dmarcRouter = require('./routes/dmarc.route')
+
+
+// CORS config
 const cors=require("cors");
+
 const corsOptions ={
    origin:'*', 
    credentials:true,            //access-control-allow-credentials:true
@@ -12,25 +16,8 @@ const corsOptions ={
 
 app.use(cors(corsOptions))
 
-app.get(
-    '/',
-    (req, res) => {
-        res.send(
-            {
-                hello: "world"
-            }
-        );
-    }
-)
-
-app.post(
-    '/upload',
-    upload.single('file'),
-    (req, res) => {
-        console.log(req.file);
-        res.sendStatus(200);
-    }
-)
+// init routes
+app.use('/api/dmarc', dmarcRouter);
 
 app.listen(
     3000,
