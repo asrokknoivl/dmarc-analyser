@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'kanit';
+  src: local('MyFont'), url(./fonts/kanit/Kanit-Bold.ttf) format('truetype');
+}
+
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  text-align: center;
+}
