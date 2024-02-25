@@ -1,17 +1,17 @@
 const express = require('express');
-const dmarcRouter = express.Router;
+const dmarcRouter = express.Router();
 const dmarcService = require('../services/dmarc.service')
 
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 
 dmarcRouter.post(
-    '/upload',
+    '/analyse',
     upload.single('file'),
     (req, res) => {
-        dmarcService.analyseReport(req.body);
+        dmarcService.analyseReport(req.file);
         res.sendStatus(200);
     }
 )
 
-module.export = dmarcRouter;
+module.exports = dmarcRouter;

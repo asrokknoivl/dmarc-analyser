@@ -5,4 +5,4 @@ const dmarcService = {
     }
 }
 
-module.export = dmarcService;
+module.exports = dmarcService;
