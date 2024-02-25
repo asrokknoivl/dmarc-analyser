@@ -17,9 +17,9 @@ const upload = multer({ storage: storage });
 dmarcRouter.post(
     '/analyse',
     upload.single('file'),
-    (req, res) => {
-        dmarcService.analyseReport(req.file);
-        res.sendStatus(200);
+    async (req, res) => {
+        const jsonData = await dmarcService.convertReportXmlToJson(req.file);
+        res.json({k: "5"});
     }
 )
 
