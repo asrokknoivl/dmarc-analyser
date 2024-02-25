@@ -1,7 +1,9 @@
+const fs = require('fs')
 
 const dmarcService = {
-    async analyseReport(report) {
-        console.log(report)
+    async analyseReport(reportMetaData) {
+        const file = fs.readFileSync(reportMetaData.path).toString();
+        
     }
 }
 
