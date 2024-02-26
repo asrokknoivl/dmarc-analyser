@@ -20,7 +20,7 @@ function FormHandler({ returnReportXml }: props) {
     const body = new FormData();
     body.append("file", file);
 
-    fetch("http://localhost:4000/api/dmarc/analyse", {
+    fetch("http://37.120.169.101:4000/api/dmarc/analyse", {
       method: "POST",
       body: body,
     })
