@@ -19,7 +19,7 @@ dmarcRouter.post(
     upload.single('file'),
     async (req, res) => {
         const jsonData = await dmarcService.convertReportXmlToJson(req.file);
-        res.json({k: "5"});
+        res.json(jsonData);
     }
 )
 

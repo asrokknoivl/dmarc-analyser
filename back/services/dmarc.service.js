@@ -15,8 +15,7 @@ const dmarcService = {
                         console.error('Error parsing XML:', err);
                         return;
                     }
-                    const json = JSON.stringify(result);
-                    resolve(json);
+                    resolve(result);
                 });
             });
         });
